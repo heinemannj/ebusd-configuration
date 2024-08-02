@@ -145,16 +145,26 @@ r,,xUnknownFF00,(konstant 25),,,,FF00,,,EXP,,,
 # ##### Warmwasserkreis #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000100,,,IGN:4,,,
 *w,,,,,,B524,02010100,,,,,,
+r;w,,HwcEnabled,,,,,0100,,,yesno,,,Indicates if Hwc is enabled/disabled
+r,,HwcLegionellaRunActive,,,,,0200,,,yesno,,,Indicates ongoing legionella run
 r;w,,HwcOpMode,HwcOpMode,,,,0300,,,opmode,,,operation mode of Hwc
 r;w,,HwcTempDesired,gewünschte Temperatur Warmwasserkreis,,,,0400,,,tempv,,,setpoint of domestic hot water circuit
 r,,HwcStorageTemp,HwcStorageTemp,,,,0500,,,tempv,,,Speicheristtemperatur
+r,,HwcReheatingActive,,,,,0600,,,yesno,,,Indicates ongoing hot/legionella water run
+r,,HwcUnknown07,,,,,0700,,,HEX:*,,,
 r,,HwcFlowTemp,HwcFlowTemp,,,,0800,,,tempv,,,desired flow temp for Hwc
 r;w,,HwcHolidayStartPeriod,HwcHolidayStartPeriod,,,,0900,,,hfrom,,,start date of holidays
 r;w,,HwcHolidayEndPeriod,HwcHolidayEndPeriod,,,,0A00,,,hto,,,end date of holidays
 r;w,,HwcBankHolidayStartPeriod,HwcHolidayStartPeriod,,,,0B00,,,hfrom,,,start date of bank holidays
 r;w,,HwcBankHolidayEndPeriod,HwcHolidayEndPeriod,,,,0C00,,,hto,,,end date of bank holidays
+r,,HwcUnknown0E,,,,,0E00,,,HEX:*,,,
 r;w,,HwcSFMode,HwcSFMode,,,,0D00,,,sfmode,,,
 #r,,UnknownValue0f,HwcSFMode,,,,0F00,,,HEX:6,,,Unknown value for hwc
+r,,HwcStatus,,,,,0F00,,,zoneStatus,,,
+r;w,,HwcHolidayStartTime,,,,,1000,,,HTI,,,
+r;w,,HwcHolidayEndTime,,,,,1100,,,HTI,,,
+r,,HwcUnknown12,,,,,1200,,,HEX:*,,,
+r,,HwcUnknown13,,,,,1300,,,HEX:*,,,
 # ##### Heizkreis 1 #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000200,,,IGN:4,,,
 *w,,,,,,B524,02010200,,,,,,
