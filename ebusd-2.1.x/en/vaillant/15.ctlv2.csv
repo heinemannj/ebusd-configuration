@@ -22,20 +22,39 @@ r,,TariffPrimHeaterLow,,,,,020000001100,tariff type,,UCH,, ,Tariff levels,ignore
 r,,TariffPrimHeaterNormal,,,,,1200,,,UIN,, ,Primary heater normal tariff value
 r,,xUnknown13,,,,,1300,,,HEX:*,,,
 r;w,,AdaptHeatCurve,adaptive heat curve,,,,1400,,,yesno,,,automatic correction of configured heat curve
+r,,xUnknown15,,,,,1500,,,HEX:*,,,
 r;w,,MaxCylinderChargeTime,maximale Speicherladezeit,,,,1700,,,minutes2,,,maximum cylinder charging time
 r;w,,HwcLockTime,hwc lock time,,,,1800,,,minutes2,,,Lock time hot water current
+r;w,,SolarFlowRateQuantity,,,,,1900,,,EXP,,l/min,preset flow rate solar circuit for solar yield calculation
 r;w,,PumpAdditionalTime,pump additional time,,,,1B00,,,minutes2,,,chargepump additional operationtime
+r,,xUnknown1B,,,,,1C00,,,HEX:*,,,
+r,,xUnknown1D,,,,,1E00,,,HEX:*,,,
+r;w,,HcAlternativePoint,,,,,2200,,,tempv,,,exclusively alternate heating below alternative point (-21=off)
+r;w,,HcBivalencePoint,,,,,2300,,,tempv,,,Bivalence point heating
+r;w,,BackupBoiler,,,,,2400,,,backmode2,,,Function of back-up boiler (Off/Hc/Hwc/Hc+Hwc)
+r,,xUnknown25,,,,,2500,,,HEX:*,,,
+r,,HcEmergencyTemperature,,,,,2600,,,tempv,,,Emergency operation temperature
 r;w,,CylinderChargeHyst,hysteresis cylinder charge,,,,2700,,,calibrationv,,,hysteris storage tank loading
 r;w,,CylinderChargeOffset,offset cylinder charge,,,,2900,,,calibrationv,,,storage tank loading. Offset
+r;w,,HwcLegionellaTime,,,,,2A00,,,HTM,,,Time hot water legionella run is scheduled (when HwcLegionellaDay is not 0)
+r;w,,HwcLegionellaDay,,,,,2B00,,,daysel2,,,Day hot water legionella run is scheduled
 r;w,,MaintenanceDate,next maintenance,,,,2C00,,,date,,,date next maintenance
+r;w,,OffsetOutsideTemp,,,,,2D00,,,tempv,,K,Offset outside temperature (used to determined DisplayedOutsideTemp)
+r,,xUnknown2F,,,,,2F00,,,HEX:*,,,
 r;w,,Date,date,,,,3400,,,date,,,current date
 r;w,,Time,time,,,,3500,,,HTI,,,current time
 r;w,,HydraulicScheme,system schema,,,,3600,,,UIN,,,system scheme
-#r;w,,Unknown38,(constant 21),,,,3800,,,tempv,,,unknown value
+r;w,,CoolingOutsideTempThreshold,,,,,3800,,,tempv,,,Activate Cooling when average outside temperature exceeds threshold
 r,,WaterPressure,water pressure,,,,3900,,,pressv,,,water pressure
+r,,DewPointOffset,,,,,3A00,,,tempv,,,Subtract from z1RoomTemp to get dew point
+r,,xUnknown3C,,,,,3C00,,,HEX:*,,,
 r;w,,SolarYieldTotal,total solar yield,,,,3D00,,,energy4,,,solar yield total
 r;w,,YieldTotal,total environmental yield,,,,3E00,,,energy4,,,envrionment yield total
+r;w,,ESCOBlockFunction,,,,,4500,,,escomode,,,Function to deactivate when Energy Supply Company sends a blocking signal
 r;w,,HwcMaxFlowTempDesired,hwc max flow temp desired,,,,4600,,,tempv,,,maximum flow temperature setpoint of Hwc
+r,,xUnknown47,,,,,4700,,,HEX:*,,,
+r,,xUnknown48,,,,,4800,,,HEX:*,,,0100 before SWW run/0300 during SWW run
+r,,xUnknown4A,,,,,4A00,,,HEX:*,,,
 r,,SystemFlowTemp,system flow temp,,,,4B00,,,tempv,,,system flow temperature
 r;w,,MultiRelaySetting,multifunction relay setting,,,,4D00,,,mamode,,,
 r;w,,PrFuelSumHcThisMonth,this months fuel consumption heating,,,,4E00,,,energy4,,,current month fuel consumption heating
@@ -52,9 +71,13 @@ r;w,,PrEnergySumHwc,total energy consumption hot water,,,,5800,,,energy4,,,total
 r;w,,PrFuelSumHwc,total fuel consumption hot water,,,,5900,,,energy4,,,total year fuel consumption hot water
 r;w,,PrEnergySum,total energy consumption,,,,5C00,,,energy4,,,total year electricity consumption
 r;w,,PrFuelSum,total fuel consumption,,,,5D00,,,energy4,,,total year fuel consumption
+r,,xUnknown60,,,,,6000,,,HEX:*,,,
+r,,xUnknown61,,,,,6100,,,HEX:*,,,
+r,,xUnknown65,,,,,6500,,,HEX:*,,,
 #r;w,,Unknown67,(VR70 konfig 1),,,,6700,,,tempv,,,unknown value
 #r;w,,Unknown68,(VR70 konfig 1),,,,6800,,,tempv,,,unknown value
 #r;w,,OpModeEffect,op mode effect (Does not seem to work anymore),,,,6900,,,zonesel,,,selection which heating circuit is affected by changing parameters in the basic display
+r;w,,MultiInputSetting,multifunction input configuration,,,,6A00,,,UIN,0=not connected;1=1x circulation;2=photovoltaics;3=Ext.Cooling,,
 r;w,,Installer1,installer name 1,,,,6C00,,,shortname,,,installer's name
 r;w,,Installer2,installer name 2,,,,6D00,,,shortname,,,installer's name
 r;w,,PhoneNumber1,phone number 1,,,,6F00,,,shortphone,,,installer's telephone number
@@ -63,18 +86,62 @@ r;w,,PhoneNumber2,phone number 2,,,,7000,,,shortphone,,,installer's telephone nu
 #r;w,,HolidayEndPeriod,holiday end period,,,,7200,,,hto,,,end date of holidays
 r,,DisplayedOutsideTemp,outside temperature,,,,7300,,,tempv,,,outside temperature
 #r;w,,SFMode,SF mode,,,,7400,,,sfmode,,,
+r,,xUnknown75,,,,,7500,,,HEX:*,,,
 r;w,,KeyCodeforConfigMenu,code for installer menu,,,,7600,,,UIN,,,000-999; code for the installer's menues
+r,,xUnknown77,,,,,7700,,,HEX:*,,,
 #r;w,,OpMode,operation mode,,,,7b00,,,opmode,,,operation mode of all/configured zone(s) matching OpModeEffect
+r,,xUnknown7E,,,,,7E00,,,HEX:*,,,
+r,,xUnknown80,,,,,8000,,,HEX:*,,,
+r;w,,xUnknown81,,,,,8100,,,HEX:*,,,
 #r;w,,HolidayTemp,holiday temperature,,,,8200,,,tempv,,,holiday setpoint
 #r;w,,BankHolidayStartPeriod,bank holiday start period,,,,8300,,,hfrom,,,start date of bank holidays
 #r;w,,BankHolidayEndPeriod,bank holiday end period,,,,8400,,,hto,,,end date of bank holidays
 #r;w,,Unknown85,(constant 0/inf),,,,8500,,,tempv,,,unknown value
+r,,xUnknown86,,,,,8600,,,HEX:*,,,
+r,,xUnknown89,,,,,8900,,,HEX:*,,,
+r,,xUnknown8A,,,,,8A00,,,HEX:*,,,
+r,,xUnknown8B,,,,,8B00,,,HEX:*,,,
+r,,xUnknown8C,,,,,8C00,,,HEX:*,,,
+r,,xUnknown8D,,,,,8D00,,,HEX:*,,,
+r,,xUnknown8E,,,,,8E00,,,HEX:*,,,
+r,,xUnknown8F,,,,,8F00,,,HEX:*,,,
 r;w,,OutsideTempAvg,average outside temperature,,,,9500,,,tempv,,,rounded average outsidetemperature (updated every 3h)
 r,,MaintenanceDue,maintenance due,,,,9600,,,yesno,,,shows whether maintenance is due
+r,,xUnknown97,,,,,9700,,,HEX:*,,,
+r,,xUnknown98,,,,,9800,,,HEX:*,,,
+r,,GreenIQ,,,,,9A00,,,onoff,,,Green IQ mode on thermostat
+r,,xUnknown9B,,,,,9B00,,,HEX:*,,,
 r,,HwcStorageTempTop,hwc storage temperature top,,,,9D00,,,tempv,,,temperature sensor HWC storage top
 r,,HwcStorageTempBottom, storage temperature bottom,,,,9E00,,,tempv,,,temperature sensor HWC storage bottom
 r,,HcStorageTempTop,hc storage temperature top,,,,9F00,,,tempv,,,temperature sensor HW storage top
 r,,HcStorageTempBottom,hc storage temperature bottom,,,,A000,,,tempv,,,temperature sensor HW storage bottom
+r,,xUnknownA1,,,,,A100,,,HEX:*,,,
+r;w,,HwcCylinderOffset,Offset cylinder charge,,,,A200,,,calibrationv,,,Offset storage tank loading. Offset
+r,,xUnknownA5,,,,,A500,,,HEX:*,,,
+r,,xUnknownAB,,,,,AB00,,,HEX:*,,,
+r,,xUnknownAF,,,,,AF00,,,HEX:*,,,
+r,,xUnknownB0,,,,,B000,,,HEX:*,,,
+r,,xUnknownB1,,,,,B100,,,HEX:*,,,
+r,,xUnknownB2,,,,,B200,,,HEX:*,,,
+r,,xUnknownB3,,,,,B300,,,HEX:*,,,
+r,,xUnknownB5,,,,,B500,,,HEX:*,,,
+r,,xUnknownB6,,,,,B600,,,HEX:*,,,
+r,,xUnknownB8,,,,,B800,,,HEX:*,,,
+r,,xUnknownB9,,,,,B900,,,HEX:*,,,
+r,,xUnknownBA,,,,,BA00,,,HEX:*,,,
+r,,xUnknownBB,,,,,BB00,,,HEX:*,,,
+r,,xUnknownBC,,,,,BC00,,,HEX:*,,,
+r,,xUnknownBD,,,,,BD00,,,HEX:*,,,
+r,,xUnknownBF,,,,,BF00,,,HEX:*,,,
+r,,xUnknownEF00,(konstant 20),,,,EF00,,,EXP,,,
+r,,xUnknownF200,,,,,F200,,,HEX:*,,,
+r,,xUnknownF300,,,,,F300,,,HEX:*,,,
+r,,xUnknownF600,(konstant 15),,,,F600,,,EXP,,,
+#r,,UnknownF8,,,,,F800,,,HEX:5,,,Unknown value
+r,,xUnknownFB00,(konstant 10),,,,FB00,,,EXP,,,
+r,,xUnknownFC00,(konstant 62),,,,FC00,,,EXP,,,
+r,,xUnknownFE00,(konstant 13),,,,FE00,,,EXP,,,
+r,,xUnknownFF00,(konstant 25),,,,FF00,,,EXP,,,
 #r,,UnknownF8,,,,,F800,,,HEX:5,,,Unknown value
 # ##### hot water circuit #####,,,,,,,,,,,,,
 *r,,,,,,B524,02000100,,,IGN:4,,,
