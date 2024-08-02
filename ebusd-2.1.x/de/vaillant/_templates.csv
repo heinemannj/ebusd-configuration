@@ -99,6 +99,7 @@ phone,STR:9,,,Telefonnummer
 shortphone,STR:6,,,Telefonnummer
 mamode,UIN,0=circulation;1=dryer;2=zone;3=legiopump,,
 offmode,UIN,0=eco;1=night,,
+offmode2,UIN,0=eco;1=normal,,
 rcmode,UIN,0=off;1=modulating;2=thermostat,,
 slotIndex,UCH,,,Index eines Zeitslots. Start by 0 für den ersten Zeitslot.
 slotCount,UCH,,,Anzahl der aktiven Zeitslots an einem Tag. Kann 0 sein.
