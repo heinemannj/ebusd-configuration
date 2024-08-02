@@ -7,6 +7,7 @@ pressv,EXP,,bar,Druck
 date,HDA:3,,,Datum
 day,BDY,,,Wochentag
 daysel,UCH,0=selected;1=Mo-Fr;2=Sa-So;3=Mo-So,,Tage
+daysel2,UCH,0=off;1=Mon;2=Tue;3=Wed;4=Thu;5=Fri;6=Sat;7=Sun;8=Daily,,days
 days,UCH,,,Tage
 time,VTI,,,Zeit
 time2,VTM,,,Zeit
